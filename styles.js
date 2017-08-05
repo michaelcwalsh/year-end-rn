@@ -4,10 +4,22 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   logInScreen: {
     flex: 1,
+
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
   },
   logInBox: {
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 200,
+    marginLeft: 20,
+    marginRight: 20,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 25,
+    backgroundColor: 'white',
   },
   input: {
     borderBottomColor: 'black',
@@ -27,6 +39,7 @@ const styles = StyleSheet.create({
   },
   noaccount: {
     marginTop: 10,
+    marginBottom: 10,
   },
   register: {
     color: '#C2412D',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, Image, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
 
@@ -17,6 +17,7 @@ class LogInScreen extends Component {
 
     return (
       <View style={styles.logInScreen}>
+      <Image source={require('../images/records.jpg')} style={styles.backgroundImage} >
       <View style={styles.logInBox}>
         <TextInput
           style={styles.input}
@@ -45,6 +46,7 @@ class LogInScreen extends Component {
         </Text>
         </TouchableOpacity>
       </View>
+      </Image>
       </View>
     )
   }
