@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Keyboard, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button } from 'react-native';
 import styles from '../../styles.js';
 
 class LogInScreen extends Component {
   constructor(props){
     super(props);
     this.state = {
+      email: '',
+      password: '',
     }
   }
 
   render () {
     return (
       <View style={styles.logInScreen}>
+        <TextInput
+          style={styles.input}
+          onChangeText={(email) => this.setState({email})}
+          defaultValue="Email"
+          value={this.state.email}
+          keyboardType="email-address"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={(password) => this.setState({password})}
+          defaultValue="Password"
+          value={this.state.password}
+          secureTextEntry={true}
+          keyboardType="numeric"
+        />
+        <TouchableOpacity>
+          <Text style={styles.button}>Submit</Text>
+        </TouchableOpacity>
       </View>
     )
   }
