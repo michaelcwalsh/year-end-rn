@@ -5,14 +5,16 @@ import LogInScreen from '../scenes/LogInScreen';
 import SignUpScreen from '../scenes/SignUpScreen';
 import styles from '../../styles.js';
 
-const LogInStack = StackNavigator({
-  LogIn: {
-    screen: LogInScreen,
-    navigationOptions: ({navigation}) => ({
-      title: 'Welcome',
-    }),
+const LogInStack = StackNavigator(
+  {
+    LogIn: {
+      screen: LogInScreen,
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
+    },
+    SignUp: { screen: SignUpScreen },
   },
-  SignUp: { screen: SignUpScreen },
-});
+);
 
 export default LogInStack;

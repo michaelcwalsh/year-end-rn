@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
 
 class LogInScreen extends Component {
   constructor(props){
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: 'Email',
+      password: 'Password',
     }
   }
 
   render () {
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.logInScreen}>
+      <View style={styles.logInBox}>
         <TextInput
           style={styles.input}
           onChangeText={(email) => this.setState({email})}
@@ -32,6 +36,15 @@ class LogInScreen extends Component {
         <TouchableOpacity>
           <Text style={styles.button}>Submit</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('SignUp')}>
+        <Text style={styles.noaccount}>
+          No account?{' '}
+        <Text style={styles.register}>
+          Register
+        </Text>
+        </Text>
+        </TouchableOpacity>
+      </View>
       </View>
     )
   }
