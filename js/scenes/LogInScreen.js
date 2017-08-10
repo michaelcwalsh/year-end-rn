@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, ImageBackground, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, ImageBackground, ScrollView, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
 
@@ -15,6 +15,7 @@ class LogInScreen extends Component {
 
     return (
       <View style={styles.logInScreen}>
+      <StatusBar barStyle='light-content' />
       <ImageBackground source={require('../images/records.jpg')} style={styles.backgroundImage} >
       <View style={styles.logInBox}>
         <TextInput
@@ -22,6 +23,8 @@ class LogInScreen extends Component {
           onChangeText={(email) => this.setState({email})}
           defaultValue="Email"
           value={this.state.email}
+          autoCapitalize="none"
+          autoCorrect={false}
           keyboardType="email-address"
         />
         <TextInput

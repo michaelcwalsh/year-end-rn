@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, ImageBackground, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
-import Realm from 'realm';
 
 
 class SignUpScreen extends Component {
@@ -23,7 +22,7 @@ class SignUpScreen extends Component {
             user: user,
             url: 'realm://realm-ip:9080/~/userRealm',
           },
-          schema: [PersonSchema, ConversationSchema]
+          schema: [User]
         });
       }
       else {
@@ -50,6 +49,8 @@ class SignUpScreen extends Component {
           defaultValue="Email"
           value={this.state.email}
           keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
         />
         <TextInput
           style={styles.input}
