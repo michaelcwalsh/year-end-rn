@@ -44,6 +44,16 @@ const styles = StyleSheet.create({
   register: {
     color: '#C2412D',
   },
+  signUpButton: {
+    backgroundColor: '#C2412D',
+    color: 'white',
+    height: 30,
+    lineHeight: 30,
+    marginTop: 10,
+    textAlign: 'center',
+    width: 250,
+    marginBottom: 15,
+  },
 });
 
 export default styles;

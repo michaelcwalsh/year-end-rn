@@ -1,4 +1,4 @@
-import Realm from 'realm';
+const Realm = require('realm');
 
 class User extends Realm.Object {}
 User.schema = {

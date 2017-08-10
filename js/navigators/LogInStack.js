@@ -13,7 +13,12 @@ const LogInStack = StackNavigator(
         header: null,
       }),
     },
-    SignUp: { screen: SignUpScreen },
+    SignUp: {
+      screen: SignUpScreen,
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
+    },
   },
 );
 
