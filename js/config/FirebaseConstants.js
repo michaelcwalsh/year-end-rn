@@ -7,7 +7,7 @@ let YERNConfig = {
   storageBucket: "year-end-rn.appspot.com"
 };
 
-let YERN = firebase.initializeApp(RNRSConfig);
+let YERN = firebase.initializeApp(YERNConfig);
 
 export const YERNData = YERN.database();
 export const YERNAuth = YERN.auth;

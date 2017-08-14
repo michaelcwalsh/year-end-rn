@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { YERNAuth } from '../config/FirebaseConstants';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, ImageBackground, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
@@ -15,20 +16,12 @@ class SignUpScreen extends Component {
   }
 
   register(){
-    Realm.Sync.User.register('http://realm-ip:9080', this.state.email, this.state.password, (error, user) => {
-      if (!error) {
-        var realm = new Realm({
-          sync: {
-            user: user,
-            url: 'realm://realm-ip:9080/~/userRealm',
-          },
-          schema: [User]
-        });
-      }
-      else {
-        console.log(error);
-      }
-    })
+    YERNAuth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
   }
 
   render () {
@@ -37,12 +30,6 @@ class SignUpScreen extends Component {
       <View style={styles.logInScreen}>
       <ImageBackground source={require('../images/records.jpg')} style={styles.backgroundImage} >
       <View style={styles.logInBox}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(username) => this.setState({username})}
-          defaultValue="Username"
-          value={this.state.username}
-        />
         <TextInput
           style={styles.input}
           onChangeText={(email) => this.setState({email})}
