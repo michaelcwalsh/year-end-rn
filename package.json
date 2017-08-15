@@ -7,9 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase": "^4.2.0",
+    "firebase-admin": "^5.1.0",
+    "native-base": "^2.3.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.4",
-    "realm": "^1.10.0"
+    "react-navigation": "^1.0.0-beta.11"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
