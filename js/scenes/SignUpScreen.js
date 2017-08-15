@@ -22,7 +22,7 @@ class SignUpScreen extends Component {
     YERNAuth.createUserWithEmailAndPassword(this.state.email, this.state.password).then(function(user) {
       var user = YERNAuth.currentUser;
       logUser(user);
-      navigate('Feed');
+      navigate('Tabs');
     }, function(error) {
       this.setState({ errorMessage: error.message });
     }.bind(this));
