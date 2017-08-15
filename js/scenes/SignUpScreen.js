@@ -38,7 +38,6 @@ class SignUpScreen extends Component {
 
 
   render () {
-    console.log(this.state.email);
     return (
       <View style={styles.logInScreen}>
       <ImageBackground source={require('../images/records.jpg')} style={styles.backgroundImage} >
@@ -46,8 +45,8 @@ class SignUpScreen extends Component {
         <Text>{this.state.errorMessage}</Text>
         <TextInput
           style={styles.input}
+          placeholder="email"
           onChangeText={(email) => this.setState({email})}
-          defaultValue="Email"
           value={this.state.email}
           keyboardType="email-address"
           autoCapitalize="none"
@@ -55,6 +54,7 @@ class SignUpScreen extends Component {
         />
         <TextInput
           style={styles.input}
+          placeholder="password"
           onChangeText={(password) => this.setState({password})}
           defaultValue="Password"
           value={this.state.password}

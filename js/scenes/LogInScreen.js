@@ -21,7 +21,7 @@ class LogInScreen extends Component {
         <TextInput
           style={styles.input}
           onChangeText={(email) => this.setState({email})}
-          defaultValue="Email"
+          placeholder="email"
           value={this.state.email}
           autoCapitalize="none"
           autoCorrect={false}
@@ -30,7 +30,7 @@ class LogInScreen extends Component {
         <TextInput
           style={styles.input}
           onChangeText={(password) => this.setState({password})}
-          defaultValue="Password"
+          placeholder="password"
           value={this.state.password}
           secureTextEntry={true}
           keyboardType="numeric"
