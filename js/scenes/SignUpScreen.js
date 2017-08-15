@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { YERNAuth } from '../config/FirebaseConstants';
+import { YERNAuth, YERNData } from '../config/FirebaseConstants';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard, Button, ImageBackground, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import styles from '../../styles.js';
@@ -11,25 +11,39 @@ class SignUpScreen extends Component {
     this.state = {
       email: '',
       password: '',
-      username: '',
+      errorMessage: '',
     }
   }
 
-  register(){
-    YERNAuth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    });
+
+  register() {
+    YERNAuth.createUserWithEmailAndPassword(this.state.email, this.state.password).then(function(user) {
+      var user = YERNAuth.currentUser;
+      logUser(user);
+    }, function(error) {
+      this.setState({ errorMessage: error.message });
+    }.bind(this));
+
+    function logUser(user) {
+      var postsRef = YERNData.ref("users");
+      var newPostRef = postsRef.push();
+      var uid = user.uid;
+      var email = user.email;
+
+      YERNData.ref('users/' + uid).set({
+        email: email,
+      });
+    }
   }
 
+
   render () {
-    console.log('hi');
+    console.log(this.state.email);
     return (
       <View style={styles.logInScreen}>
       <ImageBackground source={require('../images/records.jpg')} style={styles.backgroundImage} >
       <View style={styles.logInBox}>
+        <Text>{this.state.errorMessage}</Text>
         <TextInput
           style={styles.input}
           onChangeText={(email) => this.setState({email})}

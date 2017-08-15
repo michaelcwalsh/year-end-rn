@@ -10,5 +10,5 @@ let YERNConfig = {
 let YERN = firebase.initializeApp(YERNConfig);
 
 export const YERNData = YERN.database();
-export const YERNAuth = YERN.auth;
+export const YERNAuth = YERN.auth();
 export const YERNStorage = YERN.storage();
