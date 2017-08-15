@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import LogInScreen from '../scenes/LogInScreen';
 import SignUpScreen from '../scenes/SignUpScreen';
+import Tabs from './Tabs';
 import styles from '../../styles.js';
 
 const LogInStack = StackNavigator(
@@ -19,6 +20,9 @@ const LogInStack = StackNavigator(
         header: null,
       }),
     },
+    Tabs: {
+      screen: Tabs,
+    }
   },
 );
 

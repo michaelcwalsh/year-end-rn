@@ -18,7 +18,7 @@ class LogInScreen extends Component {
     const { navigate } = this.props.navigation;
 
     YERNAuth.signInWithEmailAndPassword(this.state.email, this.state.password).then(function(user) {
-      navigate('');
+      navigate('Tabs');
     }, function(error) {
       this.setState({ errorMessage: error.message });
     }.bind(this));
